@@ -13,13 +13,11 @@ def smaller_number_index(start_index, numbers)
 end
 
 def selection_sort(array)
-  array.each_with_index do |n, i|
-    smaller_number_index = smaller_number_index(i, array)
+  array.each_with_index do |current_number, current_index|
+    smaller_number_index = smaller_number_index(current_index, array)
 
-    if array[i] > array[smaller_number_index]
-      array[i] = array[smaller_number_index]
-      array[smaller_number_index] = n
-    end
+    array[current_index] = array[smaller_number_index]
+    array[smaller_number_index] = current_number
   end
 end
 
