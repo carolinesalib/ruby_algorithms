@@ -1,4 +1,4 @@
-numbers = [10, 8, 9, 2, 3, 4, 4, 5, 1, 6, 7]
+# numbers = [10, 8, 9, 2, 3, 4, 4, 5, 1, 6, 7]
 
 def smaller_number_index(start_index, numbers)
   i = start_index
@@ -21,4 +21,4 @@ def selection_sort(array)
   end
 end
 
-pp selection_sort(numbers)
+# pp selection_sort(numbers)
