@@ -7,11 +7,11 @@ def sort(numbers)
   new_numbers = []
 
   numbers.each_with_index do |n, i|
-    if n[i] < pivot
-      new_numbers[smaller_number_index] = n[i]
-      new_numbers[i] = 
+    next unless n[i] < pivot
+
+    new_numbers[smaller_number_index] = n[i]
+    new_numbers[i] =
       smaller_number_index = i
-    end
   end
 end
 
