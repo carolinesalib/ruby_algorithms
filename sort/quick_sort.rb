@@ -1,20 +1,41 @@
-# TODO: sort array of numbers
-numbers = [9, 8, 6, 7, 4, 3, 4, 1, 2, 5]
+array = [9, 8, 6, 7, 4, 3, 10, 1, 2, 5]
 
-def sort(numbers)
-  pivot = numbers.size
-  smaller_number_index = -1
-  new_numbers = []
+def switch(array, index1, index2)
+  value1 = array[index1]
+  value2 = array[index2]
 
-  numbers.each_with_index do |n, i|
-    next unless n[i] < pivot
+  array[index1] = value2
+  array[index2] = value1
 
-    new_numbers[smaller_number_index] = n[i]
-    new_numbers[i] =
-      smaller_number_index = i
+  array
+end
+
+def part(array, pivot)
+  smaller_numbers = 0
+
+  (0...pivot).each do |i|
+    if array[i] < array[pivot]
+      switch(array, i, smaller_numbers)
+      smaller_numbers += 1
+    end
+  end
+
+  switch(array, pivot, smaller_numbers)
+  smaller_numbers
+end
+
+def sort(array, start_index, end_index)
+  elements = end_index - start_index
+  if elements > 1
+    new_pivot = part(array, end_index - 1)
+    sort(array, start_index, new_pivot)
+    sort(array, new_pivot + 1, end_index)
   end
 end
 
-pp sort(numbers)
+def quick_sort(array)
+  sort(array, 0, array.length)
+end
 
-# TODO: sort by multiple objects
+quick_sort(array)
+pp array
